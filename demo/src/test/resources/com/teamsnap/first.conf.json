@@ -1,0 +1,18 @@
+{
+  "server": "hub-cloud.browserstack.com",
+  "username": "BROWSERSTACK_USERNAME",
+  "access_key": "BROWSERSTACK_ACCESS_KEY",
+
+  "capabilities": {
+    "project": "TeamSnap App Test Demo",
+    "build": "browserstack-build-1",
+    "name": "Interview_Test",
+    "browserstack.debug": true,
+    "app": "bs://ae6c1c94042fc4cfb58952acc81f934a4e7c4b3d"
+  },
+
+  "environments": [{
+    "device": "Google Pixel 3",
+    "os_version":  "9.0"
+  }]
+}
