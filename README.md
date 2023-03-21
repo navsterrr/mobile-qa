@@ -38,7 +38,7 @@ The Goal of this project is to write an Appium test using JUnit for an Android A
 
 7. Start the Appium Inspector session and go through the steps of a user logging into the TeamSnap app. Make sure to copy down the element names to use for your test case. The username and password for the TeamSnap app were sent to you via the google doc.
 
-8. Write out your test case to log into the TeamSnap app in src/test/java/com/teamsnap/AppTest.java. There is a spot called:   /* Write your test steps here */
+8. Write out your test case to log into the TeamSnap app in src/test/java/com/teamsnap/AppTest.java. There is a spot called:   ```/* Write your test steps here */```
 
 9. Run your test! Here are two options:
 
