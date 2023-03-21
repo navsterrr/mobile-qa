@@ -27,7 +27,7 @@ import org.junit.runners.Parameterized.Parameters;
 public class BaseConfig {
     public AndroidDriver<AndroidElement> driver;
 
-    private static JSONObject config;
+    private static JSONObject config; 
 
     @Parameter(value = 0)
     public int taskID;
