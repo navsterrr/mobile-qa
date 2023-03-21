@@ -20,7 +20,7 @@ The Goal of this project is to write an Appium test using JUnit for an Android A
 
 ### Instructions
 
-1. Pull down this repo (if you haven't already).
+1. Pull down this mobile-qa repository (if you haven't already).
 
 2. Install the dependencies
 
@@ -28,19 +28,17 @@ The Goal of this project is to write an Appium test using JUnit for an Android A
     mvn clean
     ```
 
-3. In src/test/resources/com/teamsnap/first.conf.json, replace ```username``` and ```access key``` values with the ones sent to you via the google doc.
+3. In the first.conf.json, replace ```username``` and ```access key``` values with the ones sent to you via the Google Document.
 
-4. Open the appium inspector and select Browserstack as the Cloud Provider.
+4. Open the Appium Inspector and select Browserstack as the Cloud Provider.
 
-5. Enter the browserstack username and access key (same values that you adjusted in step 2)
+5. Enter the Browserstack username and access key (same values that you adjusted in step 3) and set the desired capabilities (hint: you can find the app path in the first.conf.json file)
 
-6. In desired capabilities, set the platformName, deviceName, and app. (hint: you can find the app path in the first.conf.json file)
+6. Start the Appium Inspector session and go through the steps of a user logging into the TeamSnap app. The username and password for the TeamSnap app were sent to you via the Google document.
 
-7. Start the Appium Inspector session and go through the steps of a user logging into the TeamSnap app. Make sure to copy down the element names to use for your test case. The username and password for the TeamSnap app were sent to you via the google doc.
+7. Write out your test case to log into the TeamSnap app in AppTest.java. There is a spot called:   ```/* Write your test steps here */```
 
-8. Write out your test case to log into the TeamSnap app in src/test/java/com/teamsnap/AppTest.java. There is a spot called:   ```/* Write your test steps here */```
-
-9. Run your test! Here are two options:
+8. Run your test! Here are two options:
 
     Using Maven: ```mvn test -P first```
 
@@ -48,5 +46,5 @@ The Goal of this project is to write an Appium test using JUnit for an Android A
     - Open AppTest.java
     - Right click --> Run Java
 
-10. View your test results on the [Browserstack Dashboard](https://app-automate.browserstack.com/dashboard). You will need to log into Browserstack with the email and password sent to you in the google doc.
+9. View your test results on the [Browserstack Dashboard](https://app-automate.browserstack.com/dashboard). You will need to log into Browserstack with the email and password sent to you in the Google Document.
 
