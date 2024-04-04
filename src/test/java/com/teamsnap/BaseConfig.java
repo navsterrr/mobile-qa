@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.io.FileReader;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,26 +15,20 @@ import org.json.simple.parser.JSONParser;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
-import org.junit.runners.Parameterized;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized.Parameter;
-import org.junit.runners.Parameterized.Parameters;
-
-@RunWith(Parameterized.class)
 public class BaseConfig {
     public AndroidDriver<AndroidElement> driver;
 
-    private static JSONObject config; 
+    private static JSONObject config;
 
-    @Parameter(value = 0)
     public int taskID;
 
-    @Parameters
-    public static Iterable<? extends Object> data() throws Exception {
+    @DataProvider(name = "data")
+    public static Iterator<Object> data() throws Exception {
         List<Integer> taskIDs = new ArrayList<Integer>();
 
         JSONParser parser = new JSONParser();
@@ -44,11 +39,12 @@ public class BaseConfig {
             taskIDs.add(i);
         }
 
-        return taskIDs;
+        return (Iterator<Object>) taskIDs;
     }
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeMethod
+    @Parameters("taskID")
+    public void setUp(int taskID) throws Exception {
         JSONArray envs = (JSONArray) config.get("environments");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -87,9 +83,9 @@ public class BaseConfig {
         driver = new AndroidDriver(new URL("http://" + username + ":" + accessKey + "@" + config.get("server") + "/wd/hub"), capabilities);
     }
 
-    @After
+    @AfterMethod
     public void tearDown() throws Exception {
-        // Invoke driver.quit() to indicate that the test is completed. 
+        // Invoke driver.quit() to indicate that the test is completed.
         // Otherwise, it will appear as timed out on BrowserStack.
         driver.quit();
     }
