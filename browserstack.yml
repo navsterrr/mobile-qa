@@ -1,37 +1,21 @@
-# =============================
-# Set BrowserStack Credentials
-# =============================
-# Add your BrowserStack userName and acccessKey here or set BROWSERSTACK_USERNAME and
-# BROWSERSTACK_ACCESS_KEY as env variables
+userName: "username"
+accessKey: "key"
+server: "hub-cloud.browserstack.com"
 
-environments:
-  - name: "Environment 1"
-    server: "hub-cloud.browserstack.com"
-    userName: username
-    accessKey: accessKey
-    capabilities:
-      "project": "TeamSnap App Test Demo"
-      "build": "browserstack-build-1"
-      "name": "Interview_Test"
-      platformName: "Android"
-      deviceName: "Samsung Galaxy S10"
-      "browserstack.debug": true,
-      "app": "bs://b73641736ff4980855aa5b27d75c19ac5aeab032"
+project: "TeamSnap App Test Demo"
+build: "browserstack-build-1"
+name: "Interview_Test"
+browserstack.debug: true
+androidApp: "bs://005f78b50ea368046464c1fa1fec887e364b4e9f"
+ioSApp: "bs://6669245d5b0133c51dcbd52c4e12f9e343e32860"
+androidDevice: "Google Pixel 3"
+androidVersion: "9.0"
+iOSDevice : "iPhone 14"
+iOSVersion : "16"
 
-platforms:
-  - deviceName: Samsung Galaxy S21
-    osVersion: 11.0
-    platformName: android
-  - deviceName: Google Pixel 6 Pro
-    osVersion: 12.0
-    platformName: android
-
-
-parallelsPerPlatform: 1
-browserstackLocal: true # <boolean> (Default false)
-debug: false # <boolean> # Set to true if you need screenshots for every selenium command ran
-consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)
+browserstackLocal: true
+debug: false
+consoleLogs: errors
 appiumLogs: true
 networkLogs: true
 video: true
-
