@@ -17,7 +17,7 @@
 
 ## Goal of this Project
 
-The Goal of this project is to write an Appium test using TestNG for our TeamSnap Android or iOS Application. You can choose whether you want to write the test for our iOS or Android application. The framework is already set up, you will just need to write your test case(s) in the AppTest.java file. We will be using Browserstack to run our tests for this project. For this example, we would like you to write a test to cover one of the test cases you wrote in the first interview.
+The Goal of this project is to write an Appium test using TestNG for our TeamSnap Android or iOS Application. You can choose whether you want to write the test for our iOS or Android application. The framework is already set up, you will just need to write your test case(s) in the AppTest.java file. With that being said, feel free to make any changes that you'd like to the test framework in order to write your test. We will be using Browserstack to run our tests for this project. For this example, we would like you to write a test to cover one of the test cases you wrote in the first interview.
 
 ## Instructions
 
