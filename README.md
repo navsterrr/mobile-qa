@@ -1,4 +1,6 @@
-### Requirements
+# Mobile Test Automation Interview Project
+
+## Requirements
 
 1. Java 8+
 
@@ -13,12 +15,11 @@
 3. Appium Inspector
     - If Appium Inspector is not downloaded, download it from [here](https://github.com/appium/appium-inspector/releases)
 
+## Goal of this Project
 
-### Goal of this Project
+The Goal of this project is to write an Appium test using TestNG for our TeamSnap Android or iOS Application. You can choose whether you want to write the test for our iOS or Android application. The framework is already set up, you will just need to write your test case(s) in the AppTest.java file. We will be using Browserstack to run our tests for this project. For this example, we would like you to write a test to cover one of the test cases you wrote in the first interview.
 
-The Goal of this project is to write an Appium test using JUnit for an Android Application. The framework is already set up, you will just need to plug in some variables and write your test case! We will be using Browserstack to run our tests for this project. For this example, we would like you to write a test to log into the TeamSnap mobile application.
-
-### Instructions
+## Instructions
 
 1. Pull down this mobile-qa repository (if you haven't already).
 
@@ -28,23 +29,23 @@ The Goal of this project is to write an Appium test using JUnit for an Android A
     mvn clean
     ```
 
-3. In the first.conf.json, replace ```username``` and ```access key``` values with the ones sent to you via the Google Document.
+3. In the browserstack.yml file, replace ```username``` and ```accesskey``` values with the ones sent to you via the Google Document.
 
 4. Open the Appium Inspector and select Browserstack as the Cloud Provider.
 
-5. Enter the Browserstack username and access key (same values that you adjusted in step 3) and set the desired capabilities (hint: you can find the app path in the first.conf.json file)
+5. Enter the Browserstack username and access key (same values that you adjusted in step 3) and set the desired capabilities (hint: you can find the app path in the browserstack.yml file)
 
-6. Start the Appium Inspector session and go through the steps of a user logging into the TeamSnap app. The username and password for the TeamSnap app were sent to you via the Google document.
+6. Start the Appium Inspector session and go through the steps of the test case defined in the Google document. The username and password for the TeamSnap app were sent to you via the Google document.
 
 7. Write your test case to log into the TeamSnap app. There is a spot in AppTest.java called: ```/* Write your test steps here */```
 
 8. Run your test! Here are two options:
 
-    Using Maven: ```mvn test -P first```
-
-    Manually execute:
-    - Open AppTest.java
-    - Right click --> Run Java
+    - Using Maven:
+      - Android: ```mvn test -Pandroid```
+      - iOS: ```mvn test -Pios```
+    - Using xml files:
+      - Right click on test_android.xml and click `Run`
+      - Right click on test_ios.xml and click `Run`
 
 9. View your test results on the [Browserstack Dashboard](https://app-automate.browserstack.com/dashboard). You will need to log into Browserstack with the email and password sent to you in the Google Document.
-

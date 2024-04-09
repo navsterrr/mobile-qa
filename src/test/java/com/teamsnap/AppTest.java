@@ -1,12 +1,12 @@
 package com.teamsnap;
 
-import org.junit.Test;
-import io.appium.java_client.MobileBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import config.BrowserStackConfig;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
-public class AppTest extends BaseConfig {
-    
-  /* Write your test steps here */
+public class AppTest extends BrowserStackConfig {
 
+    private final SoftAssert assertion = new SoftAssert();
+
+    /* Write your test steps here */
 }

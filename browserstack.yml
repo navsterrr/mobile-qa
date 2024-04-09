@@ -1,0 +1,21 @@
+userName: "username"
+accessKey: "accesskey"
+server: "hub-cloud.browserstack.com"
+
+project: "TeamSnap App Test Demo"
+build: "browserstack-build-1"
+name: "Interview_Test"
+browserstack.debug: true
+androidApp: "bs://1d24bf10cf71596507d9f43e96785265ea0c5ef2"
+iosApp: "bs://01f21009a01cff0c1b4bea2a093890d1a8b604c0"
+androidDevice: "Samsung Galaxy S24"
+androidVersion: "14.0"
+iOSDevice : "iPhone 14"
+iOSVersion : "16"
+
+browserstackLocal: true
+debug: false
+consoleLogs: errors
+appiumLogs: true
+networkLogs: true
+video: true
