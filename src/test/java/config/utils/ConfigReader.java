@@ -1,7 +1,6 @@
 package config.utils;
 
 import org.testng.ITestResult;
-import org.testng.annotations.Parameters;
 import org.yaml.snakeyaml.Yaml;
 import java.io.FileReader;
 import java.io.IOException;

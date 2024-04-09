@@ -41,7 +41,7 @@ public class BrowserStackConfig {
             case "ios":
                 device = (String) config.get("iOSDevice");
                 os = (String) config.get("iOSVersion");
-                app = (String) config.get("ioSApp");
+                app = (String) config.get("iosApp");
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported OS: " + platform);
