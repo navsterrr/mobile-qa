@@ -37,7 +37,7 @@ The Goal of this project is to write an Appium test using TestNG for our TeamSna
 
 6. Start the Appium Inspector session and go through the steps of the test case defined in the Google document. The username and password for the TeamSnap app were sent to you via the Google document.
 
-7. Write your test case to log into the TeamSnap app. There is a spot in AppTest.java called: ```/* Write your test steps here */```
+7. Write your test case defined in the Google Doc Instructions. There is a spot in AppTest.java called: ```/* Write your test steps here */```
 
 8. Run your test! Here are two options:
 
