@@ -31,15 +31,19 @@ The Goal of this project is to write an Appium test using TestNG for our TeamSna
 
 3. In the browserstack.yml file, replace ```username``` and ```accesskey``` values with the ones sent to you via the Google Document.
 
-4. Open the Appium Inspector and select Browserstack as the Cloud Provider.
+4. In the browserstack.yml file, replace ```android-app-id``` or ```ios-app-id``` values with the ones sent to you via the Google Document.
 
-5. Enter the Browserstack username and access key (same values that you adjusted in step 3) and set the desired capabilities (hint: you can find the app path in the browserstack.yml file)
+    - Choose whether to write the test for Android or iOS. If you choose Android, set the ```android-app-id``` value. If you choose iOS, set the ```ios-app-id``` value.
 
-6. Start the Appium Inspector session and go through the steps of the test case defined in the Google document. The username and password for the TeamSnap app were sent to you via the Google document.
+5. Open the Appium Inspector and select Browserstack as the Cloud Provider.
 
-7. Write your test case defined in the Google Doc Instructions. There is a spot in AppTest.java called: ```/* Write your test steps here */```
+6. Enter the Browserstack username and access key (same values that you adjusted in step 3) and set the desired capabilities (hint: you can find the app path in the browserstack.yml file)
 
-8. Run your test! Here are two options:
+7. Start the Appium Inspector session and go through the steps of the test case defined in the Google document. The username and password for the TeamSnap app were sent to you via the Google document.
+
+8. Write your test case defined in the Google Doc Instructions. There is a spot in AppTest.java called: ```/* Write your test steps here */```
+
+9. Run your test! Here are two options:
 
     - Using Maven:
       - Android: ```mvn test -Pandroid```
@@ -48,4 +52,4 @@ The Goal of this project is to write an Appium test using TestNG for our TeamSna
       - Right click on test_android.xml and click `Run`
       - Right click on test_ios.xml and click `Run`
 
-9. View your test results on the [Browserstack Dashboard](https://app-automate.browserstack.com/dashboard). You will need to log into Browserstack with the email and password sent to you in the Google Document.
+10. View your test results on the [Browserstack Dashboard](https://app-automate.browserstack.com/dashboard). You will need to log into Browserstack with the email and password sent to you in the Google Document.
