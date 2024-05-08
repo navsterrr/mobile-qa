@@ -17,5 +17,5 @@ browserstackLocal: true
 debug: false
 consoleLogs: errors
 appiumLogs: true
-networkLogs: true
+networkLogs: false
 video: true
