@@ -29,7 +29,7 @@ public class BrowserStackConfig {
         ConfigReader reader = new ConfigReader();
 
         String device;
-        String os ;
+        String os;
         String app;
 
         switch (platform) {
@@ -53,8 +53,7 @@ public class BrowserStackConfig {
         capabilities.setCapability("app", app);
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
         capabilities.setCapability("idleTimeout", "1000");
-
-
+        capabilities.setCapability("settings[enableMultiWindows]", true);
 
         String url = reader.urlBrowserStack(testMethod);
 
@@ -64,13 +63,13 @@ public class BrowserStackConfig {
             appiumDriver = new IOSDriver<>(new URL(url), capabilities);
         }
     }
+
     private Map<String, Object> readConfigFromFile() throws IOException {
         Yaml yaml = new Yaml();
         try (FileReader fileReader = new FileReader("browserstack.yml")) {
             return yaml.load(fileReader);
         }
     }
-
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult testResult) throws Exception {
