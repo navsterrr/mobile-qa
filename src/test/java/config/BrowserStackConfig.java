@@ -17,6 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class BrowserStackConfig {
     protected AppiumDriver<MobileElement> appiumDriver;
@@ -24,6 +25,7 @@ public class BrowserStackConfig {
     @BeforeMethod(alwaysRun = true)
     @Parameters("platform")
     public void setUp(String platform, ITestResult testMethod) throws Exception {
+
         Map<String, Object> config = readConfigFromFile();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ConfigReader reader = new ConfigReader();
@@ -47,21 +49,36 @@ public class BrowserStackConfig {
                 throw new IllegalArgumentException("Unsupported OS: " + platform);
         }
 
-        capabilities.setCapability("device", device);
-        capabilities.setCapability("os_version", os);
-        capabilities.setCapability("platformName", platform);
+        // capabilities.setCapability("device", device);
+        // capabilities.setCapability("os_version", os);
+        // capabilities.setCapability("platformName", platform);
         capabilities.setCapability("app", app);
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
+        // capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 3 * 60); //extra time for DEBUGGING
         capabilities.setCapability("idleTimeout", "1000");
         capabilities.setCapability("settings[enableMultiWindows]", true);
+        capabilities.setCapability("interactiveDebugging", true);
+        capabilities.setCapability("browserstack.debug", true);
+        capabilities.setCapability("video", true);  //must be true for interactiveDebugging=true
 
-        String url = reader.urlBrowserStack(testMethod);
+        
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device);
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platform);
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, os);
+        // // final String udid = "emulator-5554";
+        // capabilities.setCapability(MobileCapabilityType.UDID, udid);
+        // capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+        // capabilities.setCapability(MobileCapabilityType.FULL_RESET, false);
+
+        String url = reader.urlBrowserStack(testMethod); // Browserstack URL for Appium server
 
         if ("android".equals(platform)) {
             appiumDriver = new AppiumDriver<>(new URL(url), capabilities);
         } else {
             appiumDriver = new IOSDriver<>(new URL(url), capabilities);
         }
+        appiumDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     private Map<String, Object> readConfigFromFile() throws IOException {

@@ -1,0 +1,35 @@
+
+There are 2 @Test methods that will run in correct order(dependency) as part of the test suite - 
+1. testCreateRepeatingEvent()
+    -performs Login, and creates a Repeating Event 
+2. testSchedule()
+    -performs Login, and verifies the data fields of the repeating events created in prior test
+
+DATA CLEANUP for re-running tests: 
+1. Before re-running the tests, perform a manual cleanup by deleting the Repeating Events in the app prior to subsequent test runs.
+2. Also, Location dropdown field gets populated with a new location each run, and if there are 3+ locations in the dropdown list, causes the test to fail to select the "Create New Location" menu item.
+To resolve this, need to delete the Team from the web app, and re-create the Team with the same name. This will remove the previous locations from the dropdown.
+
+
+REQUIREMENTS TO RUN LOCALLY:
+1. Requires JAVA <= 15 to work properly with PageFactory (due to existing PageFactory bug - https://github.com/appium/java-client/issues/1575)
+2. requires local Appium server started at default path http://localhost:4723
+3. Requires Android Emulator for running on android device
+4. copy of the TeamSnap Android app with "app" path hardcoded in LocalAppiumConfig.java in setUp() method
+5. Run with `mvn test -Pandroid`
+
+ISSUE with Browserstack:
+Using the pointer sequence actions works LOCALLY to scroll Calendar and set time on Time widget 
+and selecting items in some dropdown lists (Location list, Repeat Frequency list). However these actions are failing
+on Browserstack with "UnsupportedCommand actions"
+
+See screen recording video of E2E test run LOCALLY: 
+https://drive.google.com/file/d/1RBNrWIYSaEBZ4-0FYFQicSSi1gU5jchg/view?usp=drive_link
+
+
+
+Submitted by: 
+
+Navin Raveenderen
+navsterrr@gmail.com
+M 323-536-2846
